@@ -31,34 +31,25 @@ To preview the website locally:
 
 ### Creative Projects
 
-#### Project 01: [Project Title]
-**Description**: Brief description of your creative AI project.
+#### Project 01: AshVerse - Alternate History Novel Series
+**Description**: An epic 6-book alternate history series set in a timeline where Robert E. Lee dies at Gettysburg in 1863, fundamentally changing the course of American history. The project demonstrates extensive AI-assisted creative writing, world-building, and narrative development across 250+ documentation files. Features AI assistants for consistency checking, character development, plausibility analysis, and multi-generational storytelling spanning 1863-1939.
 
-**Repository**: [Link to repository](https://github.com/username/repo-name)
+**Repository**: [https://github.com/Lochnivar/ashverse](https://github.com/Lochnivar/ashverse)
 
-**Tags**: Creative, AI, [other tags]
+**Tags**: Creative, Writing, World-Building, Alternate History, AI-Assisted Writing
 
 ---
 
-#### Project 02: [Project Title]
-**Description**: Brief description of your creative AI project.
+#### Project 02: The Way TTRPG - Tabletop Role-Playing Game System
+**Description**: A complete tabletop RPG system design featuring the innovative d20+ die mechanic, Path Matrix™ character progression system, and universal Strain resource management. The project demonstrates extensive AI-assisted game design, mechanics development, and system documentation across 60+ files. Features open development philosophy with tiered release strategy supporting 7,776 unique character builds at full release. Includes comprehensive rules for combat, magic, martial techniques, character progression, and equipment systems.
 
-**Repository**: [Link to repository](https://github.com/username/repo-name)
+**Repository**: [https://github.com/Lochnivar/theway](https://github.com/Lochnivar/theway)
 
-**Tags**: Creative, AI, [other tags]
+**Tags**: Creative, Game Design, TTRPG, RPG System Design, AI-Assisted Development
 
 ---
 
 ### Analytical Projects
-
-#### Project 03: [Project Title]
-**Description**: Brief description of your analytical AI project.
-
-**Repository**: [Link to repository](https://github.com/username/repo-name)
-
-**Tags**: Analytical, ML, [other tags]
-
----
 
 #### Project 04: [Project Title]
 **Description**: Brief description of your analytical AI project.
@@ -69,14 +60,23 @@ To preview the website locally:
 
 ---
 
-### Professional Projects
-
 #### Project 05: [Project Title]
-**Description**: Brief description of your professional AI project.
+**Description**: Brief description of your analytical AI project.
 
 **Repository**: [Link to repository](https://github.com/username/repo-name)
 
-**Tags**: Professional, Enterprise, [other tags]
+**Tags**: Analytical, ML, [other tags]
+
+---
+
+### Professional Projects
+
+#### Project 03: KAMS v2 - Enterprise Monitoring System
+**Description**: Enterprise alert monitoring and management system demonstrating AI-assisted deployment, installation automation, and production reconciliation workflows. Features comprehensive AI agent instruction systems for installation verification, upgrade processes, and production issue reconciliation across multiple deployment environments. Shows practical AI integration for enterprise software lifecycle management.
+
+**Repository**: Private Repository (Internal/Proprietary)
+
+**Tags**: Professional, Enterprise, DevOps, AI-Assisted Development, Production Management
 
 ---
 
