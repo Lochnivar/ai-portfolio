@@ -87,9 +87,7 @@ Features extensive AI-assisted world-building, character development, historical
 
 **Tags**: Analytical, Game Systems, Procedural Generation, Systems Modeling, AI-Assisted Development, Constraint-Based Design
 
-**Detailed Documentation**: See [`PROJECT-BATTLETECH.md`](PROJECT-BATTLETECH.md) for comprehensive project details, design principles, and technical implementation.
-
-**Detailed Documentation**: See [`PROJECT-BATTLETECH.md`](PROJECT-BATTLETECH.md) for comprehensive project details, design principles, and technical implementation.
+**Detailed Documentation**: See [`battletech-economy.html`](battletech-economy.html) for comprehensive case study with design principles and technical implementation.
 
 ---
 

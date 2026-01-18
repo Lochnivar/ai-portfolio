@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BattleTech: Material Economy Redesign - Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: calc(100vh - 200px);
+        }
+        .breadcrumb {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+        .case-study-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .section-content p {
+            margin-bottom: 1.25rem;
+        }
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .impact-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .impact-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .quote-block {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">AI Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / <a href="index.html#projects">Projects</a> / BattleTech Economy Redesign
+        </div>
+
+        <header class="case-study-header">
+            <h1 class="case-study-title">BattleTech: Material Economy Redesign</h1>
+            <p class="case-study-subtitle">
+                Making warfare expensive: A procedural generation system that grounds BattleTech's conflicts in 
+                material reality rather than abstract honor and pride.
+            </p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Feature Complete</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Category</span>
+                    <span class="meta-value">Analytical / Game Systems</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">System Designer & Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Technologies</span>
+                    <span class="meta-value">Python, YAML, Procedural Generation</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">The Problem: Romance Without Consequences</h2>
+            <div class="section-content">
+                <div class="quote-block">
+                    "In canonical BattleTech, Hanse Davion gifts an entire military district to his bride as a wedding 
+                    present, launching the Fourth Succession War. But in a resource-constrained universe, egos don't 
+                    repair myomer bundles."
+                </div>
+                
+                <p>
+                    BattleTech's universe has always suffered from a fundamental disconnect: while the setting claims 
+                    to be about desperate warfare in a resource-starved future, the actual conflicts are driven by 
+                    pride, honor, and grand romantic gestures. There was no real economy—sure, C-Bills existed as 
+                    currency, but they felt empty. Faction motivation was pride, not resources. It didn't fit reality.
+                </p>
+
+                <p>
+                    The famous Hanse Davion "gift" exemplifies this problem perfectly. A leader literally gives away 
+                    an entire military district as a wedding present, launching a massive interstellar war—and the 
+                    narrative treats this as romantic rather than logistically insane. Someone has to maintain those 
+                    BattleMechs. Someone has to produce the myomer. Someone has to mine the rare earths. But canonical 
+                    BattleTech hand-waves all of this away in favor of dynastic drama.
+                </p>
+
+                <p>
+                    For players and GMs who care about strategic depth, this creates a problem: How do you make 
+                    warfare feel consequential when resources don't matter? How do you create meaningful strategic 
+                    choices when logistics is an afterthought?
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Solution: Material Scarcity Drives Conflict</h2>
+            <div class="section-content">
+                <p>
+                    The redesign creates a complete material economy where <strong>astrophysical reality constrains 
+                    strategic options</strong>. Instead of abstract honor motivating warfare, factions fight because 
+                    they need specific resources that only exist in specific stellar environments.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Core Design Principle:</strong> Every strategic resource is tied to stellar classification 
+                    and planetary characteristics. No hand-waving. No narrative convenience. If your star system can't 
+                    produce organic polymers, you can't manufacture myomer. If you can't manufacture myomer, you can't 
+                    build or repair BattleMechs.</p>
+                </div>
+
+                <p>
+                    This transforms the Fourth Succession War from a romantic gesture into a brutal calculation: 
+                    Hanse Davion's "gift" becomes a logistical nightmare that requires securing supply chains, 
+                    establishing repair facilities, and ensuring access to critical manufacturing centers. Romance 
+                    becomes expensive. War becomes about resources, not just honor.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Key Design Features</h3>
+                
+                <ul class="feature-list">
+                    <li>
+                        <strong>3d6 Probability Distribution:</strong> Uses bell curve distribution familiar to 
+                        BattleTech players (from hit location rolls) to create realistic resource scarcity. Most 
+                        systems are "average," exceptional systems are rare, and complete resource deserts exist.
+                    </li>
+                    <li>
+                        <strong>Stellar Classification Constraints:</strong> Different star types enable different 
+                        industrial capabilities. Red dwarfs, yellow stars, and blue giants each create different 
+                        strategic possibilities and limitations.
+                    </li>
+                    <li>
+                        <strong>Critical Resource Dependencies:</strong> Myomer requires organic polymers. Advanced 
+                        electronics require rare earths. Fusion engines require specific isotopes. Each creates 
+                        strategic chokepoints.
+                    </li>
+                    <li>
+                        <strong>Jump Point Accessibility:</strong> Not all systems are equally accessible. Some 
+                        require multi-jump routes, increasing supply chain vulnerability and creating natural 
+                        strategic corridors.
+                    </li>
+                    <li>
+                        <strong>Emergent Strategic Gameplay:</strong> Resource distribution creates natural conflict 
+                        zones, strategic dependencies, and meaningful trade relationships without DM fiat.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Implementation</h2>
+            <div class="section-content">
+                <p>
+                    The system consists of three integrated components working together to generate realistic, 
+                    balanced stellar economies:
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">1. Documented Methodology</h3>
+                <p>
+                    Comprehensive design documentation explaining the relationship between stellar characteristics 
+                    and resource availability. This includes:
+                </p>
+                <ul class="feature-list">
+                    <li>Stellar classification tables (O, B, A, F, G, K, M types)</li>
+                    <li>Resource generation matrices based on astrophysical constraints</li>
+                    <li>Industrial capacity calculations tied to stellar energy output</li>
+                    <li>Probability distributions for resource scarcity/abundance</li>
+                </ul>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">2. Procedural Generation Code</h3>
+                <p>
+                    Python implementation that generates star systems with realistic resource distributions. The 
+                    code uses 3d6 mechanics to create bell curve distributions while respecting astrophysical 
+                    constraints.
+                </p>
+
+                <div class="code-block">
+# Example: Myomer precursor availability based on stellar type
+def generate_organic_polymers(stellar_type, planet_characteristics):
+    # M-class red dwarfs lack sufficient UV for complex organics
+    if stellar_type == 'M':
+        return 0
+    
+    # G-type and K-type stars (like Sol) ideal for organic chemistry
+    if stellar_type in ['G', 'K']:
+        base_value = roll_3d6()  # Bell curve: 10-11 most common
+        modifier = planet_characteristics['atmosphere_complexity']
+        return base_value + modifier
+    
+    # F-type stars possible but less ideal
+    if stellar_type == 'F':
+        return roll_3d6() - 2  # Penalty but still possible
+    
+    # Hot stars (O, B, A) destroy complex organics
+    return 0
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">3. Generated System Data</h3>
+                <p>
+                    YAML files for each star system containing complete economic profiles. Each system includes:
+                </p>
+                <ul class="feature-list">
+                    <li>Stellar classification and characteristics</li>
+                    <li>Available resources and their abundance levels</li>
+                    <li>Industrial capacity and manufacturing capabilities</li>
+                    <li>Jump point accessibility and strategic position</li>
+                    <li>Critical dependencies and trade requirements</li>
+                </ul>
+
+                <div class="tech-stack">
+                    <span class="tech-badge">Python 3.x</span>
+                    <span class="tech-badge">YAML</span>
+                    <span class="tech-badge">Procedural Generation</span>
+                    <span class="tech-badge">Statistical Modeling</span>
+                    <span class="tech-badge">Astrophysics Research</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">AI Collaboration Methodology</h2>
+            <div class="section-content">
+                <p>
+                    Development leveraged AI assistance across multiple phases, from research to implementation 
+                    to validation:
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Astrophysical Research:</strong> Used AI to rapidly gather and synthesize information 
+                        about stellar classification, planetary chemistry, and resource formation processes.
+                    </li>
+                    <li>
+                        <strong>Balance Validation:</strong> Tested resource distribution algorithms against AI-generated 
+                        scenarios to identify edge cases and ensure no faction could achieve resource monopolies that 
+                        broke gameplay.
+                    </li>
+                    <li>
+                        <strong>Code Generation:</strong> AI assisted in implementing the 3d6 probability distributions 
+                        and stellar constraint logic, with human oversight ensuring game design goals were met.
+                    </li>
+                    <li>
+                        <strong>Documentation:</strong> Collaborated with AI to create clear technical documentation 
+                        explaining both the scientific rationale and gameplay implications of design decisions.
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Key Insight:</strong> AI excels at helping explore the possibility space of complex 
+                    systems—suggesting edge cases, identifying balance issues, and generating test scenarios. Human 
+                    judgment remains essential for deciding which realistic constraints create interesting gameplay 
+                    versus which just create tedium.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Impact & Strategic Implications</h2>
+            <div class="section-content">
+                <p>
+                    The material economy transforms BattleTech from a narrative-driven wargame into a strategic 
+                    simulation where logistics matter as much as tactics:
+                </p>
+
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">5+</div>
+                        <div class="impact-label">Critical Resource Types Creating Strategic Dependencies</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">3d6</div>
+                        <div class="impact-label">Familiar Probability Mechanic Ensuring Player Accessibility</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">100%</div>
+                        <div class="impact-label">Systems Generated With Astrophysically Consistent Resources</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Emergent Strategic Scenarios</h3>
+                
+                <p>
+                    The economy creates natural strategic tensions without DM intervention:
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>The Myomer Chokepoint:</strong> Factions controlling G-type and K-type stars with 
+                        suitable atmospheres dominate myomer production. Other factions must either maintain friendly 
+                        relations, establish trade agreements, or conquer these critical systems.
+                    </li>
+                    <li>
+                        <strong>The Rare Earth Dilemma:</strong> Advanced targeting computers and communications 
+                        require rare earth elements that form only under specific geological conditions. Systems 
+                        with these resources become strategic prizes worth fighting for.
+                    </li>
+                    <li>
+                        <strong>Supply Chain Vulnerability:</strong> Multi-jump supply routes create opportunities 
+                        for raiding and interdiction. A faction might control manufacturing centers but lose access 
+                        if enemies cut the jump routes to their resource suppliers.
+                    </li>
+                    <li>
+                        <strong>The Fourth Succession War Reconsidered:</strong> Hanse Davion's "romantic gift" 
+                        becomes a calculated strategic move to secure critical manufacturing infrastructure and 
+                        resource access—but now it comes with massive logistical costs that must be justified.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What This Demonstrates</h2>
+            <div class="section-content">
+                <p>This project showcases several key professional competencies:</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Complex Systems Modeling:</strong> Ability to create interconnected systems where 
+                        multiple variables interact to produce emergent behavior.
+                    </li>
+                    <li>
+                        <strong>Domain Expertise Integration:</strong> Combining astrophysics, game design theory, 
+                        and existing BattleTech lore into a coherent, playable system.
+                    </li>
+                    <li>
+                        <strong>Procedural Generation:</strong> Implementing algorithms that create balanced, 
+                        realistic content at scale while maintaining game design goals.
+                    </li>
+                    <li>
+                        <strong>Constraint-Based Design:</strong> Using realistic limitations to create interesting 
+                        strategic choices rather than arbitrary rules.
+                    </li>
+                    <li>
+                        <strong>AI-Assisted Development:</strong> Leveraging AI for research, validation, and 
+                        implementation while maintaining human oversight for creative and strategic decisions.
+                    </li>
+                    <li>
+                        <strong>Technical Implementation:</strong> Writing clean, maintainable code that implements 
+                        complex design specifications.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Future Development</h2>
+            <div class="section-content">
+                <p>
+                    While the material economy system is feature-complete, it serves as a foundation for a larger 
+                    BattleTech universe rewrite. Planned extensions include:
+                </p>
+
+                <ul class="feature-list">
+                    <li>Manufacturing capacity modeling tied to industrial infrastructure</li>
+                    <li>Trade route optimization and piracy vulnerability calculations</li>
+                    <li>Technology degradation and maintenance cost systems</li>
+                    <li>Strategic campaign layer integrating economy with military operations</li>
+                    <li>Interactive tools for GMs to generate and manage system economies</li>
+                </ul>
+
+                <p>
+                    The economy provides the material constraints that make these future systems meaningful—you 
+                    can't optimize trade routes if resources don't matter, and you can't create interesting 
+                    maintenance dilemmas if everything is equally available everywhere.
+                </p>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 style="margin-bottom: 1rem;">Interested in This Approach?</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                This methodology applies to any game system or simulation requiring realistic resource constraints 
+                and emergent strategic gameplay.
+            </p>
+            <a href="index.html#projects" class="cta-button" style="background: #6b7280;">View Other Projects</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Portfolio. Demonstrating AI capabilities across creative, analytical, and professional contexts.</p>
+        </div>
+    </footer>
+</body>
+</html>

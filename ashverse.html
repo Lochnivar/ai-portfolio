@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AshVerse: Alternate History Novel Series - Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: calc(100vh - 200px);
+        }
+        .breadcrumb {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+        .case-study-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .section-content p {
+            margin-bottom: 1.25rem;
+        }
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        .warning-box {
+            background: rgba(236, 72, 153, 0.1);
+            border-left: 4px solid var(--accent-creative);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .impact-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .impact-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .quote-block {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        .timeline-table th,
+        .timeline-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .timeline-table th {
+            background: var(--bg-card);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .timeline-table tr:hover {
+            background: var(--bg-card);
+        }
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">AI Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / <a href="index.html#projects">Projects</a> / AshVerse
+        </div>
+
+        <header class="case-study-header">
+            <h1 class="case-study-title">AshVerse: Alternate History Without Apologia</h1>
+            <p class="case-study-subtitle">
+                How do you write Confederate independence without creating Lost Cause propaganda? Through rigorous 
+                plausibility testing, AI-assisted consistency management, and an unwavering commitment to intellectual 
+                honesty over narrative convenience.
+            </p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Active Development</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Category</span>
+                    <span class="meta-value">Creative / Long-Form Fiction</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Scope</span>
+                    <span class="meta-value">6-Book Series (1863-1939)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Documentation</span>
+                    <span class="meta-value">250+ Files</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">The Problem: A Minefield of Bad Faith</h2>
+            <div class="section-content">
+                <div class="quote-block">
+                    "Standing at Gettysburg National Battlefield, I realized the South was one bad decision away 
+                    from NOT losing. But most alternate history exploring this becomes Lost Cause pornography. 
+                    How do you write realistic Confederate independence without romanticizing the Confederacy?"
+                </div>
+                
+                <p>
+                    The genesis of AshVerse came from a visit to Gettysburg and a sobering realization: the battle 
+                    really didn't need to be fought. Lee's pig-headed pride forced an engagement that could have been 
+                    avoided. The South was closer to "not losing" than most people realize—not because of superior 
+                    virtue or military genius, but because of historical contingency and Northern political will.
+                </p>
+
+                <p>
+                    But here's the trap: nearly every "CSA wins" alternate history devolves into Lost Cause mythology. 
+                    They make the Confederacy heroic, the Union incompetent, and slavery either invisible or justified. 
+                    They're not historical fiction—they're wish fulfillment for a cause that deserved to lose.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>The Central Challenge:</strong> How do you explore this plausible historical divergence 
+                    without creating propaganda? How do you write Confederate independence that acknowledges the moral 
+                    horror of slavery while maintaining historical realism? How do you prevent AI assistance from 
+                    inadvertently reinforcing Lost Cause tropes?</p>
+                </div>
+
+                <p>
+                    This required building a methodology that treats plausibility as a moral guardrail, not just a 
+                    creative constraint. The result is a comprehensive AI collaboration framework designed to maintain 
+                    intellectual honesty across a massive, long-form narrative project.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Point of Divergence: July 1, 1863</h2>
+            <div class="section-content">
+                <p>
+                    The divergence is brutally simple and historically plausible: Robert E. Lee dies of a heart attack 
+                    on July 1, 1863, at Gettysburg. Not a heroic battlefield death—a medical event that could have 
+                    happened to a man under enormous stress.
+                </p>
+
+                <table class="timeline-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>July 1, 1863</strong></td>
+                            <td>Lee dies of heart attack at Gettysburg</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 2, 1863</strong></td>
+                            <td>Longstreet takes command, countermarches NORTH to Harrisburg (not west)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug-Sep 1863</strong></td>
+                            <td>Warren's Meat-Grinder: Rappahannock-Rapidan disaster for Union</td>
+                        </tr>
+                        <tr>
+                            <td><strong>November 1864</strong></td>
+                            <td>McClellan defeats Lincoln in election (North loses political will)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>March 31, 1865</strong></td>
+                            <td>Treaty of Cincinnati - CSA independence recognized</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    What follows is NOT a Confederate triumph. Slavery dies of economics (1894 in practice, 1905 
+                    legally), not Northern moral victory. Texas secedes from the CSA in 1877. California goes 
+                    independent in 1873. By 1939, North America has four nations locked in uneasy coexistence, 
+                    with Europe burning under Stalin's invasion of Poland (not Hitler's).
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Key Insight:</strong> This isn't "the South wins." It's "the North loses the will to 
+                    continue." The distinction matters. No side is vindicated. Everyone pays the price for decades.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The 70% Plausibility Gate: Ethical Guardrails</h2>
+            <div class="section-content">
+                <p>
+                    The plausibility gate is the methodological core of the project. Every major plot point, military 
+                    action, and historical consequence must score ≥70% plausibility or be rejected—even if rejection 
+                    hurts the narrative.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Why 70% Specifically?</h3>
+                
+                <p>
+                    The threshold exists to protect against "Lost Cause porn"—scenarios where the Confederacy wins 
+                    through implausible brilliance or Union incompetence. At 70%, events must have strong historical 
+                    precedent, logical causation, and realistic constraints. Anything below is wish fulfillment.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Real Example: The Culpeper Flanking March</strong></p>
+                    <p>
+                        Initial plan: Union General Warren attempts flanking march through Culpeper to bypass 
+                        Confederate defenses. Wargaming revealed:
+                    </p>
+                    <ul class="feature-list">
+                        <li><strong>Distance problem:</strong> Too far for sustainable communication lines</li>
+                        <li><strong>Logistical vulnerability:</strong> Supply lines impossibly exposed</li>
+                        <li><strong>Character inconsistency:</strong> Warren's documented personality wouldn't 
+                        attempt something this risky</li>
+                    </ul>
+                    <p>
+                        <strong>Decision:</strong> Cut the entire movement, even though Union failure served the 
+                        narrative. Rejected because implausible, not because inconvenient.
+                    </p>
+                </div>
+
+                <p>
+                    This is anti-Lost-Cause methodology in action: refusing to make the Union stupid just to let 
+                    the Confederacy win. Both sides operate under realistic constraints. Victories and defeats must 
+                    be earned through plausible historical mechanisms.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">AI Collaboration Framework: Managing Consistency at Scale</h2>
+            <div class="section-content">
+                <p>
+                    Writing alternate history across 250+ documentation files and 80 years of divergent timeline 
+                    creates a unique challenge: how do you prevent AI assistants from hallucinating contradictory 
+                    details, assuming Our Timeline (OTL) events happened, or drifting from established canon?
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The AI Refresher Document System</h3>
+
+                <p>
+                    The solution is a 3,500+ word "refresher document" that serves as active context management 
+                    for AI collaboration. This isn't just a reference—it's task management for maintaining 
+                    narrative consistency across long-form creative work.
+                </p>
+
+                <div class="code-block"># CANON REFRESHER FOR AI ASSISTANTS
+
+## CRITICAL PROCESS RULES
+
+### Golden Rule: No Original Text Modification
+- AI NEVER edits books/ folder - All suggestions go in edits/
+- AI NEVER locks canon - Only user can lock
+- AI NEVER commits/pushes unless explicitly requested
+
+### Plausibility Gate
+- ≥70%: Acceptable | &lt;70%: Avoid unless dramatically essential
+
+### Honesty Rule
+- Don't invent details not in context - Say "I don't have that info"
+- Don't guess at canon facts - Offer to check documents
+
+---
+
+## OTL EVENTS THAT NEVER HAPPEN
+
+**Military (95%+ certainty never happen):**
+- Gettysburg Days 2-3 (Pickett's Charge, Little Round Top)
+- Overland Campaign, Siege of Petersburg
+- Sherman's March to the Sea
+- Lee's surrender at Appomattox (April 9, 1865)
+
+**Political:**
+- Lincoln's re-election (McClellan wins)
+- 13th/14th/15th Amendments
+- Entire Reconstruction Era
+
+---
+
+## KEY FACTS (Quick Reference)
+
+### Timeline Anchors
+- Jul 1863: Lee dies, Longstreet takes command
+- Mar 31, 1865: Treaty of Cincinnati (CSA independence)
+- 1894: Slavery dies in practice (economics, not morality)
+- 1905: Legal abolition in CSA
+- 1919: American Concord (4 nations: USA, CSA, California, Texas)</div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">How the Refresher System Works</h3>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Context Window Management:</strong> Reloaded at conversation start to prevent 
+                        AI hallucination and canon drift over long development sessions
+                    </li>
+                    <li>
+                        <strong>Critical "DO NOT" Rules:</strong> Explicit constraints preventing AI from assuming 
+                        OTL events, editing source files, or inventing details
+                    </li>
+                    <li>
+                        <strong>Locked Canon Protection:</strong> Prevents AI from contradicting established facts 
+                        (e.g., West Virginia stays USA, California is pragmatic not moralistic)
+                    </li>
+                    <li>
+                        <strong>Honesty Enforcement:</strong> AI required to say "I don't have that information" 
+                        rather than guessing or inventing
+                    </li>
+                    <li>
+                        <strong>Plausibility Integration:</strong> The 70% threshold is embedded in AI instructions, 
+                        creating automatic filtering
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Real-World Impact:</strong> The refresher doc prevents cascading continuity errors. 
+                    Without it, AI might assume Sherman's March to the Sea happened (it didn't—war ended first), 
+                    suggest Lincoln signed the treaty (McClellan did—Lincoln lost election), or forget that Texas 
+                    and California are independent nations by 1900.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Wargaming as Plausibility Validation</h2>
+            <div class="section-content">
+                <p>
+                    Military plausibility can't be assumed—it must be tested. The project uses systematic wargaming 
+                    to validate every major military operation, with AI assistance modeling both sides under 
+                    historical constraints.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The Anti-Bias Mechanism</h3>
+
+                <p>
+                    The wargaming system includes explicit anti-bias rules to prevent author favoritism:
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Turn-Based Simulation:</strong> Each side's moves evaluated independently, 
+                        preventing narrative convenience
+                    </li>
+                    <li>
+                        <strong>Historical Personality Constraints:</strong> Commanders must act consistent with 
+                        documented decision-making patterns (e.g., Warren wouldn't attempt risky flanking moves)
+                    </li>
+                    <li>
+                        <strong>Logistical Reality Checks:</strong> Supply lines, communication times, terrain, 
+                        and exhaustion modeled explicitly
+                    </li>
+                    <li>
+                        <strong>No Predetermined Outcomes:</strong> If wargaming shows an operation fails 
+                        plausibility, it gets cut—regardless of narrative impact
+                    </li>
+                </ul>
+
+                <p>
+                    This methodology creates uncomfortable truths for both sides. The Confederacy doesn't win 
+                    through brilliance—they win through Northern political collapse after costly stalemates. 
+                    The Union doesn't lose through incompetence—they lose because the political cost exceeds 
+                    Northern willingness to pay it.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Implementation & Documentation Architecture</h2>
+            <div class="section-content">
+                <p>
+                    Managing a project spanning 80 years of alternate history, six books, and 250+ documentation 
+                    files requires systematic organization and clear AI collaboration protocols.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Repository Structure</h3>
+
+                <div class="code-block">ashverse/
+├── books/                    # Source manuscripts (AI never edits directly)
+│   ├── 01-the-match/        # 1863-1865: War ends
+│   ├── 02-the-flare/        # 1865-1877: Raids, Texas independence
+│   ├── 03-the-fire/         # 1878-1894: Viral raids, slavery dies
+│   ├── 04-the-embers/       # 1895-1905: Legal abolition
+│   ├── 05-the-quenching/    # 1906-1919: WWI, American Concord
+│   └── 06-the-ashes/        # 1920-1939: Depression, Europe burns
+├── edits/                   # AI suggestions go here (never direct edits)
+├── world-building/          # 250+ documentation files
+│   ├── 01-geography.md
+│   ├── 02-economic-systems.md
+│   ├── 03-political-systems.md
+│   ├── 04-military-doctrine.md
+│   ├── 05-cultural-systems.md
+│   └── 06-timelines.md
+├── characters/              # Character profiles & development
+├── wargaming/              # Battle simulations & military validation
+├── ai-rules/               # AI collaboration protocols
+│   ├── canon-refresher.md  # 3,500+ word quick reference
+│   ├── plausibility-gate.md
+│   └── process-rules.md
+└── canon-master-document.md # Comprehensive canon reference</div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Core Methodological Documents</h3>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Canon Refresher (3,500+ words):</strong> Quick-reference loaded at conversation 
+                        start, prevents hallucination
+                    </li>
+                    <li>
+                        <strong>Canon Master Document:</strong> Comprehensive reference for deep dives, linked 
+                        from refresher
+                    </li>
+                    <li>
+                        <strong>Plausibility Gate Rules:</strong> Scoring methodology, thresholds, validation 
+                        process
+                    </li>
+                    <li>
+                        <strong>Wargaming Protocols:</strong> Turn structure, anti-bias mechanisms, documentation 
+                        requirements
+                    </li>
+                    <li>
+                        <strong>Timeline Locks:</strong> Immutable historical anchors that cannot be contradicted
+                    </li>
+                </ul>
+
+                <div class="tech-stack">
+                    <span class="tech-badge">Markdown Documentation</span>
+                    <span class="tech-badge">Git Version Control</span>
+                    <span class="tech-badge">AI-Assisted Writing</span>
+                    <span class="tech-badge">Historical Research</span>
+                    <span class="tech-badge">Wargaming Simulation</span>
+                    <span class="tech-badge">Consistency Management</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Ethical Framework: "Everyone Is Wrong"</h2>
+            <div class="section-content">
+                <p>
+                    AshVerse rejects the simplistic morality common to alternate history. There are no purely 
+                    good actors. The framework ensures this through systematic constraints:
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Anti-Lost-Cause Guardrails</h3>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Slavery Dies of Economics, Not Morality:</strong> No Northern victory narrative 
+                        to redeem the nation. Slavery becomes economically unsustainable by 1894, legally abolished 
+                        1905—decades later than OTL, showing the cost of Confederate independence.
+                    </li>
+                    <li>
+                        <strong>Northern Raids (400+ over 30 years):</strong> 200,000 slaves freed through organized 
+                        resistance, showing continued moral opposition without military victory.
+                    </li>
+                    <li>
+                        <strong>Texas Secedes FROM the CSA (1877):</strong> Not all Confederate states were unified. 
+                        Internal contradictions tore the Confederacy apart from within.
+                    </li>
+                    <li>
+                        <strong>California Goes Independent (1873):</strong> Pragmatism over ideology—refuses to 
+                        choose between USA and CSA, becomes richest nation through neutrality.
+                    </li>
+                    <li>
+                        <strong>"Scaffolding vs Payload":</strong> Constitutional questions about federalism survive 
+                        as legitimate debate. Slavery remains morally indefensible—too toxic to rehabilitate.
+                    </li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>The Cost of Independence:</strong> By 1939, North America has four nations unable 
+                    to act cohesively. Europe burns under Stalin. The price of the Civil War's different ending 
+                    isn't Confederate triumph—it's continental fragmentation and global consequences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Current Status & Development Roadmap</h2>
+            <div class="section-content">
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">3</div>
+                        <div class="impact-label">Chapters in Rough Draft (Book 1: "The Match")</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">250+</div>
+                        <div class="impact-label">Documentation Files Supporting Worldbuilding</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">80</div>
+                        <div class="impact-label">Years of Alternate Timeline (1863-1939)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">≥70%</div>
+                        <div class="impact-label">Plausibility Threshold for All Major Events</div>
+                    </div>
+                </div>
+
+                <p>
+                    The project remains in active development, with systematic validation occurring at every stage:
+                </p>
+
+                <ul class="feature-list">
+                    <li>Each chapter undergoes plausibility review before advancing</li>
+                    <li>Wargaming validates all military operations in real-time</li>
+                    <li>Canon refresher updated as new elements become locked</li>
+                    <li>AI collaboration refined based on consistency challenges</li>
+                    <li>Research ongoing for cultural, economic, and political systems</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What This Demonstrates</h2>
+            <div class="section-content">
+                <p>This project showcases sophisticated professional competencies across multiple domains:</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Long-Form AI Collaboration:</strong> Managing narrative consistency across massive 
+                        creative projects using structured context management and refresher systems
+                    </li>
+                    <li>
+                        <strong>Ethical Constraint Design:</strong> Building methodological guardrails to prevent 
+                        ideological drift and propaganda creation
+                    </li>
+                    <li>
+                        <strong>Multi-Layer Validation:</strong> Combining wargaming, historical research, character 
+                        psychology, and plausibility scoring to ensure intellectual honesty
+                    </li>
+                    <li>
+                        <strong>Complex Documentation Architecture:</strong> Organizing 250+ files with clear AI 
+                        collaboration protocols and version control
+                    </li>
+                    <li>
+                        <strong>Research Methodology:</strong> Systematic approach to distinguishing OTL events from 
+                        alternate timeline consequences
+                    </li>
+                    <li>
+                        <strong>Creative Courage:</strong> Willingness to cut completed work (like the Culpeper 
+                        flanking march) when validation shows it fails plausibility tests
+                    </li>
+                    <li>
+                        <strong>Hallucination Prevention:</strong> Solving the "AI forgets things" problem through 
+                        active context management and explicit constraint systems
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Core Innovation:</strong> This isn't just "AI-assisted writing"—it's a complete 
+                    methodology for maintaining intellectual honesty in long-form creative projects where AI 
+                    collaboration could easily drift into wish fulfillment or propaganda. The refresher document 
+                    system and plausibility gate solve real problems that plague any AI-assisted creative work 
+                    at scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Broader Applications</h2>
+            <div class="section-content">
+                <p>
+                    While AshVerse is alternate history fiction, the methodology applies to any domain requiring:
+                </p>
+
+                <ul class="feature-list">
+                    <li>Long-form content creation with AI assistance</li>
+                    <li>Consistency management across large documentation sets</li>
+                    <li>Ethical guardrails preventing ideological drift</li>
+                    <li>Validation of complex scenarios through systematic testing</li>
+                    <li>Context window management for extended AI collaboration</li>
+                    <li>Version control and change tracking for collaborative writing</li>
+                </ul>
+
+                <p>
+                    The refresher document approach could adapt to technical documentation, worldbuilding for games, 
+                    scenario planning for businesses, or any context where AI must maintain consistency across 
+                    extended projects without hallucinating contradictory details.
+                </p>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 style="margin-bottom: 1rem;">Interested in This Methodology?</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                The AI collaboration framework and plausibility validation system represent transferable skills 
+                for managing complex creative and analytical projects.
+            </p>
+            <a href="https://github.com/Lochnivar/ashverse" class="cta-button" target="_blank">View Repository</a>
+            <a href="index.html#projects" class="cta-button" style="background: #6b7280;">View Other Projects</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Portfolio. Demonstrating AI capabilities across creative, analytical, and professional contexts.</p>
+        </div>
+    </footer>
+</body>
+</html>
