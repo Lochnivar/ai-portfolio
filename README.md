@@ -32,11 +32,20 @@ To preview the website locally:
 ### Creative Projects
 
 #### Project 01: AshVerse - Alternate History Novel Series
-**Description**: An epic 6-book alternate history series set in a timeline where Robert E. Lee dies at Gettysburg in 1863, fundamentally changing the course of American history. The project demonstrates extensive AI-assisted creative writing, world-building, and narrative development across 250+ documentation files. Features AI assistants for consistency checking, character development, plausibility analysis, and multi-generational storytelling spanning 1863-1939.
+**Description**: An epic 6-book alternate history series set in a timeline where Robert E. Lee dies at Gettysburg in 1863, fundamentally changing the course of American history. The project demonstrates sophisticated AI collaboration through multiple specialized systems:
+
+- **AI Refresher Sheets**: Comprehensive 3,500+ word canon reference documents (`canon-refresher-for-ai.md`, `canon-refresher-for-ai-detailed.md`) designed specifically for AI assistants, containing critical timeline anchors, process rules, plausibility scores, and cross-references to 250+ documentation files
+- **Wargaming Simulations**: Turn-based military operation simulation framework (`wargaming-simulation-template.md`, `wargaming-simulation-guide.md`) for modeling campaigns with realistic opposition, anti-bias mechanisms, and multi-phase operations (2-3 day turns, Corps/Army level)
+- **Battle Simulations**: Tactical-level simulation templates (`battle-simulation-template.md`, `battle-simulation-guide.md`) for brigade/division engagements with 1-2 hour turns, focusing on positioning, firepower, and morale
+- **Plausibility Gate Process**: Formal 70% threshold scoring system (`plausibility-gate-process.md`) for all world-building decisions, ensuring historical accuracy while allowing creative flexibility
+- **Consistency Systems**: Hash-based dependency tracking (`calculate-hash.py`, `consistency-checker.py`) for maintaining canon consistency across 250+ markdown files
+- **Process Rules**: Structured AI interaction guidelines (Golden Rule, Honesty Rule, Git Operations Rule) ensuring AI never edits original text, always models competent opposition, and maintains historical plausibility
+
+Features extensive AI-assisted world-building, character development, historical analysis, and multi-generational storytelling spanning 1863-1939.
 
 **Repository**: [https://github.com/Lochnivar/ashverse](https://github.com/Lochnivar/ashverse)
 
-**Tags**: Creative, Writing, World-Building, Alternate History, AI-Assisted Writing
+**Tags**: Creative, Writing, World-Building, Alternate History, AI-Assisted Writing, Wargaming Simulation, Plausibility Analysis, Historical Research
 
 ---
 
@@ -72,11 +81,26 @@ To preview the website locally:
 ### Professional Projects
 
 #### Project 03: KAMS v2 - Enterprise Monitoring System
-**Description**: Enterprise alert monitoring and management system demonstrating AI-assisted deployment, installation automation, and production reconciliation workflows. Features comprehensive AI agent instruction systems for installation verification, upgrade processes, and production issue reconciliation across multiple deployment environments. Shows practical AI integration for enterprise software lifecycle management.
+**Description**: Enterprise alert monitoring and management system demonstrating sophisticated AI-assisted deployment through a structured **AI Agent Instruction System** with mode-based workflows. The project features:
+
+- **AI Agent Instruction System**: Structured seed documents (🤖 AI AGENT SEED markers) that guide AI agents through specific tasks with checklists, verification steps, and documentation requirements
+- **Six Specialized Modes**:
+  - **Installation Mode** (`INSTALLATION_VERIFICATION.md`): Automatic detection of Fresh Installation vs V1 Migration, structured verification checklists, installation type-specific workflows, passwordless sudo handling patterns
+  - **Upgrade Mode** (`UPGRADE_PROCESS.md`): Sequential version upgrade support, automatic upgrade path detection, backup/recovery procedures, migration script execution, backward compatibility testing
+  - **Verification Mode**: Existing installation testing, functionality verification, issue detection and documentation
+  - **Reconciliation Mode** (`PRODUCTION_ISSUE_RECONCILIATION.md`): Production-to-dev synchronization, multi-site issue tracking, gap analysis workflows, structured issue categorization (Bug Fix, Feature Addition, Missing File, UI Fix), fix verification procedures
+  - **Feature Development Mode** (`FEATURE_DEVELOPMENT.md`): Structured development workflows separated from reconciliation processes, code review checklists, testing requirements
+  - **Cleanup Mode** (`RECONCILIATION_COMPLETE.md`): Reconciliation cycle completion, archival workflows, protection analysis to prevent accidental deletion
+- **Structured Process Management**: Systematic checklists for each mode, issue documentation templates, status tracking (✅ FIXED, ⚠️ WORKAROUND, 🔴 PRODUCTION ISSUE), cross-reference mapping between production and dev
+- **Anti-Pattern Prevention**: "Do Not Fix" rules preventing common mistakes (manual sudoers files, chmod 777 workarounds, DEV_ENVIRONMENT flags), write-to-temp-then-copy patterns for sudo file operations
+- **Multi-Site Support**: Site header parsing (`## Site: [identifier]`), sequential issue numbering across sites, site-specific reconciliation workflows
+- **Process Improvement Framework**: Standing invitation for AI agents to suggest process improvements, structured documentation of enhancements, automation hints for verification steps
+
+Demonstrates practical AI integration for enterprise software lifecycle management with structured workflows ensuring consistency, quality, and maintainability across deployment environments.
 
 **Repository**: Private Repository (Internal/Proprietary)
 
-**Tags**: Professional, Enterprise, DevOps, AI-Assisted Development, Production Management
+**Tags**: Professional, Enterprise, DevOps, AI-Assisted Development, Production Management, Structured Workflows, Process Automation
 
 ---
 
