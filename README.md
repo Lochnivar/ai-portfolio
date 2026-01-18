@@ -60,12 +60,36 @@ Features extensive AI-assisted world-building, character development, historical
 
 ### Analytical Projects
 
-#### Project 04: [Project Title]
-**Description**: Brief description of your analytical AI project.
+#### Project 04: BattleTech: Material Economy Redesign
+**Description**: Procedural generation system that grounds BattleTech's conflicts in material reality rather than abstract honor. The project creates a complete material economy where astrophysical reality constrains strategic options—factions fight because they need specific resources that only exist in specific stellar environments.
 
-**Repository**: [Link to repository](https://github.com/username/repo-name)
+**Key Features**:
+- **Astrophysical Constraints**: Every strategic resource tied to stellar classification (O, B, A, F, G, K, M types) and planetary characteristics
+- **3d6 Probability Distribution**: Uses bell curve distribution familiar to BattleTech players to create realistic resource scarcity
+- **Critical Resource Dependencies**: Myomer requires organic polymers (G/K stars), advanced electronics require rare earths, fusion engines require specific isotopes
+- **Emergent Strategic Gameplay**: Resource distribution creates natural conflict zones, strategic dependencies, and meaningful trade relationships without DM fiat
+- **Python Implementation**: Procedural generation code using 3d6 mechanics with astrophysical constraints
+- **YAML System Data**: Generated system files containing complete economic profiles for each star system
 
-**Tags**: Analytical, ML, [other tags]
+**AI Collaboration Methodology**:
+- **Astrophysical Research**: Used AI to rapidly gather and synthesize information about stellar classification, planetary chemistry, and resource formation processes
+- **Balance Validation**: Tested resource distribution algorithms against AI-generated scenarios to identify edge cases and ensure no faction could achieve resource monopolies
+- **Code Generation**: AI assisted in implementing 3d6 probability distributions and stellar constraint logic, with human oversight ensuring game design goals
+- **Documentation**: Collaborated with AI to create clear technical documentation explaining both scientific rationale and gameplay implications
+
+**Key Insight**: AI excels at exploring the possibility space of complex systems—suggesting edge cases, identifying balance issues, and generating test scenarios. Human judgment remains essential for deciding which realistic constraints create interesting gameplay versus which create tedium.
+
+**Technologies**: Python, YAML, Procedural Generation, Statistical Modeling, Astrophysics Research
+
+**Status**: Feature Complete
+
+**Repository**: Private/In Development
+
+**Tags**: Analytical, Game Systems, Procedural Generation, Systems Modeling, AI-Assisted Development, Constraint-Based Design
+
+**Detailed Documentation**: See [`PROJECT-BATTLETECH.md`](PROJECT-BATTLETECH.md) for comprehensive project details, design principles, and technical implementation.
+
+**Detailed Documentation**: See [`PROJECT-BATTLETECH.md`](PROJECT-BATTLETECH.md) for comprehensive project details, design principles, and technical implementation.
 
 ---
 
