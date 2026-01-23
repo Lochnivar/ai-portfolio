@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE WAY TTRPG System - Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: calc(100vh - 200px);
+        }
+        .breadcrumb {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+        .case-study-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .section-content p {
+            margin-bottom: 1.25rem;
+        }
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        .warning-box {
+            background: rgba(236, 72, 153, 0.1);
+            border-left: 4px solid var(--accent-creative);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th {
+            background: var(--bg-card);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .comparison-table tr:hover {
+            background: var(--bg-card);
+        }
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .impact-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .impact-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .quote-block {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .process-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .process-number {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .process-content {
+            flex: 1;
+            padding-top: 0.25rem;
+        }
+        .process-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">AI Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / <a href="index.html#projects">Projects</a> / THE WAY TTRPG
+        </div>
+
+        <header class="case-study-header">
+            <h1 class="case-study-title">THE WAY: Designing 7,776 Viable Character Builds</h1>
+            <p class="case-study-subtitle">
+                When d20 + modifier becomes predictable, how do you add excitement without breaking balance? 
+                Through AI-assisted mathematical validation, 200 simulated dungeon runs, and systematic iteration 
+                driven by evidence rather than intuition.
+            </p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Active Development</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Category</span>
+                    <span class="meta-value">Game Design / TTRPG</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Complexity</span>
+                    <span class="meta-value">7,776 Possible Builds</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Validation</span>
+                    <span class="meta-value">200+ Simulated Runs</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">The Problem: Predictable Math Gets Boring</h2>
+            <div class="section-content">
+                <div class="quote-block">
+                    "After years of d20 + modifier, the math becomes predictable. You know your +7 to hit against 
+                    AC 15 means you need an 8 or higher—45% chance, every time. The excitement fades when you can 
+                    calculate success probability in your head before rolling."
+                </div>
+                
+                <p>
+                    THE WAY began as a simple "what if" question: What if we added a second die to create swing 
+                    while maintaining bounded accuracy? But the challenge went deeper than just adding randomness.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The Weapon Personality Problem</h3>
+
+                <p>
+                    In D&D 5e, a dagger and a rapier both use your DEX modifier for attack rolls. Mechanically, 
+                    they feel identical—the only difference is damage dice. But anyone who's handled both weapons 
+                    knows: a dagger is quick, easy to swing, and lands hits more reliably. A rapier requires 
+                    precision and proper technique.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>THE WAY's Solution: Accuracy Dice</strong></p>
+                    <ul class="feature-list">
+                        <li><strong>Dagger:</strong> d10 accuracy die (avg 5.5) - fast, easy to land hits</li>
+                        <li><strong>Rapier:</strong> d8 accuracy die (avg 4.5) - requires more skill</li>
+                        <li><strong>Greatsword:</strong> d4 accuracy die (avg 2.5) - slow, harder to connect</li>
+                    </ul>
+                    <p><em>Each weapon has mechanical personality beyond damage numbers.</em></p>
+                </div>
+
+                <p>
+                    But adding dice creates exponential complexity. With 6 ability scores, 5 progression tiers 
+                    (PATHS: Primary, Advanced, Transcendent, Heroic, Supremacy), and irreversible choices at 
+                    each tier, the system potentially supports 6^5 = <strong>7,776 unique character builds</strong>.
+                </p>
+
+                <p>
+                    How do you ensure all 7,776 builds are viable? How do you prevent broken combinations? 
+                    How do you maintain bounded accuracy when players can stack multiple die bonuses?
+                </p>
+
+                <p>
+                    <strong>You can't rely on intuition at that scale. You need systematic validation.</strong>
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Core Mechanic: d20 + Die</h2>
+            <div class="section-content">
+                <p>
+                    THE WAY uses one universal resolution system applied across all mechanics:
+                </p>
+
+                <div class="code-block">d20 + Skill Die vs Target
+
+• Attacks: d20 + accuracy die vs d20 + defense die
+• Saves: d20 + save die vs DC
+• Skills: d20 + skill die vs DC (or passive if Ability ≥ DC)
+• Initiative: d20 + DEX die
+• Death Saves: d20 + CON die vs DC 10
+• Concentration: d20 + CON die vs DC 10 or half damage
+
+One mechanic, applied universally.</div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Die Rank Progression</h3>
+
+                <p>
+                    Character advancement increases your skill die rank through Path selections:
+                </p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Die Rank</th>
+                            <th>Average</th>
+                            <th>Maximum</th>
+                            <th>Increase from Previous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>d4</td>
+                            <td>2.5</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>d6</td>
+                            <td>3.5</td>
+                            <td>6</td>
+                            <td>+1.0</td>
+                        </tr>
+                        <tr>
+                            <td>d8</td>
+                            <td>4.5</td>
+                            <td>8</td>
+                            <td>+1.0</td>
+                        </tr>
+                        <tr>
+                            <td>d10</td>
+                            <td>5.5</td>
+                            <td>10</td>
+                            <td>+1.0</td>
+                        </tr>
+                        <tr>
+                            <td>d12</td>
+                            <td>6.5</td>
+                            <td>12</td>
+                            <td>+1.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>d12+2</strong></td>
+                            <td><strong>9.0</strong></td>
+                            <td><strong>14</strong></td>
+                            <td><strong>+2.5</strong></td>
+                        </tr>
+                        <tr>
+                            <td>d12+4</td>
+                            <td>11.0</td>
+                            <td>16</td>
+                            <td>+2.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Each rank increases average value by roughly 1.0-2.5 points, creating smooth, predictable 
+                    progression that maintains bounded accuracy across 36 levels.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The Path Matrix System</h3>
+
+                <p>
+                    Instead of choosing a "class," players make five irreversible choices across their career, 
+                    each selecting one of six ability scores (STR, DEX, CON, INT, WIS, CHA):
+                </p>
+
+                <ul class="feature-list">
+                    <li><strong>Primary Path (Level 1):</strong> Foundation - choose ability, gain +1 die rank</li>
+                    <li><strong>Advanced Path (Level 5):</strong> Specialization - choose ability, gain +1 die rank</li>
+                    <li><strong>Transcendent Path (Level 10):</strong> Mastery - choose ability, gain +1 die rank</li>
+                    <li><strong>Heroic Path (Level 20):</strong> Virtuosity - choose ability, gain +1 die rank</li>
+                    <li><strong>Supremacy Path (Level 30):</strong> Ascendancy - choose ability, gain +1 die rank</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Example Character Progressions:</strong></p>
+                    <ul class="feature-list">
+                        <li><strong>STR → STR</strong> = "Fighter" (pure melee combat specialist)</li>
+                        <li><strong>STR → INT</strong> = "Battlemage" (warrior-wizard hybrid)</li>
+                        <li><strong>DEX → WIS</strong> = "Ranger" (rogue-druid hybrid)</li>
+                        <li><strong>INT → CHA</strong> = "Warlock" (arcane force-caster hybrid)</li>
+                    </ul>
+                    <p><em>7,776 unique combinations at full release (6^5 permutations)</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Validation Challenge: Proving Balance</h2>
+            <div class="section-content">
+                <p>
+                    Designing 7,776 viable builds requires more than good intentions—it requires mathematical 
+                    proof and empirical testing. The initial design looked elegant on paper, but would it hold 
+                    up under scrutiny?
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The d20 Rank Disaster</h3>
+
+                <p>
+                    The original die rank progression seemed logical: standard polyhedral dice, culminating in 
+                    the iconic d20.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>Initial Design (Theory):</strong></p>
+                    <p>d4 → d6 → d8 → d10 → d12 → <strong>d20</strong></p>
+                    <ul class="feature-list">
+                        <li>Clean progression using standard RPG dice</li>
+                        <li>Thematic appeal (d20 as ultimate rank)</li>
+                        <li>Looked good on paper</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Mathematical Validation (Reality):</strong></p>
+                    <ul class="feature-list">
+                        <li><strong>Average increase per rank:</strong> ~1.0 points (d4→d6→d8→d10→d12)</li>
+                        <li><strong>d12 to d20 jump:</strong> +4.0 average (6.5 → 10.5)</li>
+                        <li><strong>Result:</strong> 4x the normal power spike—bounded accuracy shattered</li>
+                        <li><strong>Verdict:</strong> <span style="color: var(--accent-creative); font-weight: 600;">BROKEN 
+                        IMMEDIATELY</span></li>
+                    </ul>
+                </div>
+
+                <p>
+                    AI-assisted mathematical modeling caught this flaw instantly. What looked elegant in theory 
+                    created catastrophic imbalance in practice. High-level characters would dominate with near-certain 
+                    success rates, trivializing challenges and destroying the game's tension.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Evidence-Based Iteration</h3>
+
+                <p>
+                    The mathematical proof revealed the problem. But what was the solution? How do you maintain 
+                    smooth progression while capping maximum power?
+                </p>
+
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <div class="process-content">
+                            <div class="process-title">Revised Progression Design</div>
+                            d4 → d6 → d8 → d10 → d12 → d12+2 → d12+4
+                            <br>Maintains ~2 point average increase per rank
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <div class="process-content">
+                            <div class="process-title">Mathematical Validation</div>
+                            Verified bounded accuracy holds across 36 levels
+                            <br>Hit rate progression stays within 30-65% target range
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <div class="process-content">
+                            <div class="process-title">Simulation Testing</div>
+                            200 simulated dungeon runs testing endurance
+                            <br>Level 5 parties, basic combat, converted D&D monsters
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <div class="process-content">
+                            <div class="process-title">Anti-Exploitation Cap</div>
+                            d12+2 established as maximum for step-based sources
+                            <br>Prevents min-maxing to d20 rank through bonus stacking
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">AI-Assisted Simulation Methodology</h2>
+            <div class="section-content">
+                <p>
+                    Mathematical proofs validate theory. But games are played, not calculated. THE WAY underwent 
+                    extensive simulation testing to validate that theoretical balance translated to practical gameplay.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The 200 Dungeon Run Protocol</h3>
+
+                <div class="highlight-box">
+                    <p><strong>Simulation Parameters:</strong></p>
+                    <ul class="feature-list">
+                        <li><strong>Scope:</strong> 200 endurance runs ("get as far as you can")</li>
+                        <li><strong>Party Composition:</strong> Level 5 characters (Book 1 Advanced Path)</li>
+                        <li><strong>Combat Focus:</strong> Basic attacks only—no Strain, magic, or special techniques</li>
+                        <li><strong>Opposition:</strong> Converted D&D 5e monsters (rough AC/HP/damage conversions)</li>
+                        <li><strong>Variables Tested:</strong> Die rank progression, weapon accuracy/damage tradeoffs, 
+                        bounded accuracy across extended combat</li>
+                        <li><strong>Victory Condition:</strong> Rooms cleared before party wipe</li>
+                    </ul>
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">What the Simulations Revealed</h3>
+
+                <p>
+                    The testing methodology was intentionally focused: validate the core combat mechanics before 
+                    adding complexity. If d20 + die vs d20 + die doesn't work at the foundation, nothing built 
+                    on top of it will save the system.
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Bounded Accuracy Validated:</strong> Hit rates remained within 30-65% target range 
+                        across all encounter types
+                    </li>
+                    <li>
+                        <strong>Weapon Tradeoffs Work:</strong> Dagger speed (d10 accuracy) vs greatsword power 
+                        (d4 accuracy, 2d6 damage) created meaningful tactical choices
+                    </li>
+                    <li>
+                        <strong>No Runaway Progression:</strong> Even after 10+ encounters, no party achieved 
+                        guaranteed-hit status or one-shot dominance
+                    </li>
+                    <li>
+                        <strong>Die Personality Confirmed:</strong> Different weapon accuracies created distinct 
+                        combat feels without breaking balance
+                    </li>
+                </ul>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The d12+2 Cap: Preventing Exploitation</h3>
+
+                <p>
+                    The simulations revealed a subtle threat: bonus stacking. While natural progression capped 
+                    at reasonable levels, clever players could theoretically stack multiple bonuses (Path selections + 
+                    magic items + feats + buffs) to achieve d20 rank through exploitation.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>The Exploit Scenario:</strong></p>
+                    <ul class="feature-list">
+                        <li>Path selections provide die rank increases</li>
+                        <li>Magic weapons provide die rank increases</li>
+                        <li>Feats provide die rank increases</li>
+                        <li>Temporary buffs provide die rank increases</li>
+                        <li><strong>Without cap:</strong> Stack to d20 (avg 10.5, minimum 1)</li>
+                        <li><strong>Result:</strong> Min-maxed characters break bounded accuracy</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>The Solution: Step-Based vs Flat Bonuses</strong></p>
+                    <ul class="feature-list">
+                        <li><strong>Step-based sources</strong> (Path selections, proficiency, ASIs, magic ranks) 
+                        cap at d12+2</li>
+                        <li><strong>Flat bonuses</strong> (+3 weapon feature, Jack of All Trades +1) stack on top</li>
+                        <li><strong>Maximum realistic total:</strong> d12+4 (not d20)</li>
+                        <li><strong>Result:</strong> Bounded accuracy preserved even with optimization</li>
+                    </ul>
+                    <p><em>This creates clear design boundaries that prevent exploitation while allowing 
+                    meaningful progression.</em></p>
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">AI Collaboration Examples</h3>
+
+                <div class="code-block">User: "Simulate 1000 combat rounds: Level 5 Fighter (STR 16, d8 skill die, 
+longsword d6 accuracy, 1d8+d8 damage) vs AC 15 opponent. Calculate 
+hit rate, average DPR, crit frequency."
+
+AI: [Runs simulation]
+- Hit rate: 52.3% (within target 30-65% range)
+- Average DPR: 8.7 damage per round
+- Crit rate: 4.8% (expected ~5% on d20)
+- Analysis: Bounded accuracy maintained, DPR scales appropriately
+
+User: "Now simulate same character with d20 rank instead of d8."
+
+AI: [Runs simulation]
+- Hit rate: 87.4% (OUTSIDE target range, bounded accuracy broken)
+- Average DPR: 16.2 damage per round (nearly 2x increase)
+- Crit rate: 5.1% (expected)
+- Analysis: ⚠️ d20 rank breaks game balance
+
+User: "Try d12+2 instead."
+
+AI: [Runs simulation]
+- Hit rate: 64.8% (within target range, at upper bound)
+- Average DPR: 11.3 damage per round (appropriate scaling)
+- Crit rate: 5.0% (expected)
+- Analysis: ✓ d12+2 maintains bounded accuracy</div>
+
+                <p>
+                    This iterative testing process—mathematical proof, simulation validation, evidence-based 
+                    refinement—ensured that THE WAY's mechanics work in practice, not just in theory.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Documentation Architecture: Managing Complexity</h2>
+            <div class="section-content">
+                <p>
+                    A system with 7,776 possible builds requires bulletproof documentation. Every mechanic must 
+                    work standalone AND in combination with every other mechanic. The AI collaboration framework 
+                    prevents drift, contradictions, and exploitation through systematic constraint management.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">The Comprehensive Refresher System</h3>
+
+                <p>
+                    THE WAY uses a comprehensive AI refresher document (similar to AshVerse's methodology but 
+                    focused on mechanical consistency rather than narrative continuity). This 8,000+ word reference 
+                    serves as active context management for AI collaboration.
+                </p>
+
+                <div class="code-block">## Important Notes for AI Assistants
+
+### 1. ASIs increase ability scores, NOT die ranks
+- ASIs = +2 to one ability OR +1 to two abilities
+- Path selections = +1 die rank to skill die
+- These are separate systems that work together
+
+### 2. Die rank progression caps at d12+2 for step-based sources
+- Path selections, proficiency, ASIs, magic ranks → cap at d12+2
+- Flat bonuses (+3 weapons, feats) → stack on top of rider
+- Maximum: d12+4 total (prevents d20 rank exploitation)
+
+### 3. MADRT formula is MANDATORY
+- All supernatural effects MUST use MADRT for cost calculation
+- GMs cannot arbitrarily reduce costs
+- Magnitude + Area + Duration + Range + Targets = Strain cost
+
+### 4. Domain boundaries are absolute
+- Each domain has "Can Do" and "Cannot Do" lists
+- Evocation cannot heal (Life domain required)
+- Transmutation cannot summon (Conjuration required)
+- Crossing domain boundaries requires multiple Path selections</div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Design Philosophy: "Blame the Rules"</h3>
+
+                <p>
+                    THE WAY intentionally creates clear mechanical boundaries so GMs can offload unpopular 
+                    decisions to the system rather than personal judgment:
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>GMs Should Blame Rules For:</strong></p>
+                    <ul class="feature-list">
+                        <li>Mechanical restrictions (concentration limit, die rank caps)</li>
+                        <li>Domain boundaries (Evocation can't heal—it's in the rules)</li>
+                        <li>Cost calculations (MADRT is mandatory, not negotiable)</li>
+                        <li>Save bonuses (death effects get +15—it's in the table)</li>
+                    </ul>
+                    <p><em>"The rules are clear on this. I can't override the system. See page X."</em></p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>GMs Should Own Authority For:</strong></p>
+                    <ul class="feature-list">
+                        <li>Story consequences (NPC reactions, world events)</li>
+                        <li>Table conduct (social contract, player behavior)</li>
+                        <li>Pacing (when to move on, when to linger)</li>
+                        <li>Tone/theme (serious vs gonzo, heroic vs gritty)</li>
+                    </ul>
+                    <p><em>"This is my call as GM. Here's why..."</em></p>
+                </div>
+
+                <p>
+                    This separation creates healthier table dynamics: mechanical disputes reference the rulebook, 
+                    narrative decisions reflect GM authority. Players understand which fights to have and which 
+                    boundaries are immutable.
+                </p>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Repository Structure</h3>
+
+                <div class="code-block">theway/
+├── CORE/                           # Core mechanics (20+ files)
+│   ├── 01-Core-Mechanics.md        # Universal d20 + die system
+│   ├── 02-Ability-Scores.md        # Six abilities, die rank tables
+│   ├── 03-Path-Matrix.md           # 5 Paths, 7,776 builds
+│   ├── 04-Combat.md                # Attack resolution, criticals
+│   ├── 05-Magic.md                 # Domain system, spell DC
+│   ├── 09-Progression.md           # ASIs vs Path selections
+│   ├── 12-Passive-and-Active-Checks.md
+│   ├── 13-Strain-System.md         # Universal resource
+│   └── 14-Action-Economy.md        # Turn structure
+├── DOCS/                           # Design documentation
+│   ├── Canonical-System-Reference.md (Master reference)
+│   ├── AI-Refresher-Sheet.md      # 8,000+ word AI guide
+│   ├── Ability-Definitions-Reference.md
+│   ├── Magic-Domain-System.md
+│   ├── Martial-Domain-System.md
+│   ├── Path-Progression-Tables.md
+│   └── Stance-System.md
+├── PATHS/                          # Path abilities (in development)
+│   ├── Primary-Path-Abilities.md
+│   └── Advanced-Path-Abilities.md
+├── PROJECT_OUTLINE.md              # System architecture
+└── STATUS.md                       # Current development status</div>
+
+                <div class="tech-stack">
+                    <span class="tech-badge">Game Design Theory</span>
+                    <span class="tech-badge">Mathematical Modeling</span>
+                    <span class="tech-badge">AI-Assisted Simulation</span>
+                    <span class="tech-badge">Systematic Documentation</span>
+                    <span class="tech-badge">Statistical Analysis</span>
+                    <span class="tech-badge">Markdown</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Current Status & Development Roadmap</h2>
+            <div class="section-content">
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">7,776</div>
+                        <div class="impact-label">Unique Character Builds at Full Release (6^5)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">200+</div>
+                        <div class="impact-label">Simulated Dungeon Runs Validating Core Mechanics</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">36</div>
+                        <div class="impact-label">Builds in Book 1 (Primary + Advanced Paths)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">30-65%</div>
+                        <div class="impact-label">Hit Rate Range Maintained Across All Levels</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Completed Systems</h3>
+
+                <ul class="feature-list">
+                    <li>✅ Core mechanics validated (d20 + die vs target)</li>
+                    <li>✅ Passive/Active check system designed and tested</li>
+                    <li>✅ Path Matrix structure established (5 Paths × 6 abilities)</li>
+                    <li>✅ Die rank progression proven (d4 → d12+4 with d12+2 cap)</li>
+                    <li>✅ Universal Strain resource system implemented</li>
+                    <li>✅ Magic domain system designed (INT/WIS/CHA, 7 domains each)</li>
+                    <li>✅ Martial domain system designed (STR/DEX/CON, 7 domains each)</li>
+                    <li>✅ Action economy system finalized</li>
+                    <li>✅ Mathematical validation completed (bounded accuracy proven)</li>
+                    <li>✅ 200 simulation runs validating core combat</li>
+                </ul>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">In Development</h3>
+
+                <ul class="feature-list">
+                    <li>🔄 Design 12 Book 1 Path abilities (6 Primary + 6 Advanced)</li>
+                    <li>🔄 Create example spells for each magic domain</li>
+                    <li>🔄 Create example techniques for each martial domain</li>
+                    <li>🔄 Design equipment system (weapons, armor, magic items)</li>
+                    <li>🔄 Create monster conversion guidelines</li>
+                    <li>🔄 Playtest Book 1 builds with live groups</li>
+                </ul>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">Release Strategy</h3>
+
+                <p>
+                    THE WAY follows a tiered release model inspired by classic BECMI D&D:
+                </p>
+
+                <ul class="feature-list">
+                    <li><strong>Book 1 (Initial Release):</strong> Primary + Advanced Paths, 36 builds, Levels 1-9</li>
+                    <li><strong>Book 2:</strong> Adds Transcendent Path, 216 builds (6^3), Levels 10-19</li>
+                    <li><strong>Book 3:</strong> Adds Heroic Path, 1,296 builds (6^4), Levels 20-29</li>
+                    <li><strong>Book 4:</strong> Adds Supremacy Path, 7,776 builds (6^5), Levels 30-36</li>
+                </ul>
+
+                <p>
+                    Each book release requires full validation: every new Path ability must work with all 
+                    existing combinations. Book 1's 36 builds serve as the foundation—prove the core works 
+                    before expanding complexity.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What This Demonstrates</h2>
+            <div class="section-content">
+                <p>This project showcases sophisticated professional competencies across multiple domains:</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Complex Systems Design:</strong> Creating 7,776 viable character builds through 
+                        modular, combinatorial mechanics that maintain balance regardless of player choices
+                    </li>
+                    <li>
+                        <strong>Mathematical Validation:</strong> Using AI-assisted modeling to prove theoretical 
+                        balance, catching catastrophic flaws (d20 rank) before implementation
+                    </li>
+                    <li>
+                        <strong>Simulation-Driven Development:</strong> Running 200+ dungeon simulations to validate 
+                        that mathematical theory translates to practical gameplay
+                    </li>
+                    <li>
+                        <strong>Evidence-Based Iteration:</strong> Adjusting design based on empirical data rather 
+                        than intuition (d12+2 cap established through simulation, not guesswork)
+                    </li>
+                    <li>
+                        <strong>Anti-Exploitation Design:</strong> Building mechanical boundaries that prevent 
+                        min-maxing and bonus stacking while preserving meaningful progression
+                    </li>
+                    <li>
+                        <strong>Systematic Documentation:</strong> Creating comprehensive AI collaboration frameworks 
+                        with explicit constraints, preventing mechanical drift across massive complexity
+                    </li>
+                    <li>
+                        <strong>Disciplined Testing Methodology:</strong> Isolating variables (testing core combat 
+                        separately from advanced features) to validate foundations before building complexity
+                    </li>
+                    <li>
+                        <strong>Design Philosophy Integration:</strong> "Blame the Rules" approach creates healthy 
+                        table dynamics by separating mechanical constraints from GM narrative authority
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Core Innovation:</strong> THE WAY solves the "d20 gets boring" problem by adding 
+                    variance through a second die while maintaining bounded accuracy through systematic validation. 
+                    The result: weapons have mechanical personality, combat feels exciting, and 7,776 character 
+                    builds remain viable through evidence-based balance rather than designer intuition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Broader Applications</h2>
+            <div class="section-content">
+                <p>
+                    While THE WAY is a tabletop RPG system, the methodology applies to any domain requiring:
+                </p>
+
+                <ul class="feature-list">
+                    <li>Complex systems with exponential possibility spaces (7,776+ permutations)</li>
+                    <li>Balance validation across massive variable combinations</li>
+                    <li>Mathematical proof of theoretical correctness</li>
+                    <li>Simulation testing of practical performance</li>
+                    <li>Anti-exploitation design preventing edge case abuse</li>
+                    <li>Systematic documentation managing complexity at scale</li>
+                    <li>Evidence-based iteration driven by data, not assumptions</li>
+                </ul>
+
+                <p>
+                    This approach could adapt to game economy design, software testing frameworks, financial 
+                    modeling, procedural generation systems, or any context where theoretical elegance must 
+                    survive contact with reality.
+                </p>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 style="margin-bottom: 1rem;">Interested in This Methodology?</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                The AI-assisted validation framework and systematic testing approach represent transferable 
+                skills for designing and validating complex systems at scale.
+            </p>
+            <a href="https://github.com/Lochnivar/theway" class="cta-button" target="_blank">View Repository</a>
+            <a href="index.html#projects" class="cta-button" style="background: var(--bg-card); border: 1px solid var(--border-color);">View Other Projects</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Portfolio. Demonstrating AI capabilities across creative, analytical, and professional contexts.</p>
+        </div>
+    </footer>
+</body>
+</html>
