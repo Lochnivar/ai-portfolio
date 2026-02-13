@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prometheus Limit - Stellar Exploration Simulation - Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: calc(100vh - 200px);
+        }
+        .breadcrumb {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: var(--text-primary);
+        }
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+        .case-study-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .section-content p {
+            margin-bottom: 1.25rem;
+        }
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .feature-list li:before {
+            content: "\2192";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .impact-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .impact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .impact-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .quote-block {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+        }
+        .strategy-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .strategy-matrix th,
+        .strategy-matrix td {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        .strategy-matrix th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .strategy-matrix td {
+            color: var(--text-secondary);
+        }
+        .strategy-matrix tr:hover td {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        .warning-box {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 4px solid var(--accent-analytical);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        .warning-box strong {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" style="color: inherit; text-decoration: none;">AI Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study">
+        <div class="breadcrumb">
+            <a href="index.html">Portfolio</a> / <a href="index.html#projects">Projects</a> / <span>Prometheus Limit</span>
+        </div>
+
+        <header class="case-study-header">
+            <h1 class="case-study-title">Prometheus Limit: Stellar Exploration Simulation</h1>
+            <p class="case-study-subtitle">
+                An original science fiction universe where ships navigate real stellar neighborhoods using 
+                depth-dependent FTL physics, wormhole transit keys, and AI-driven exploration strategies 
+                &mdash; all built on actual astronomical data.
+            </p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Active Development</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Category</span>
+                    <span class="meta-value">Analytical / Simulation / Worldbuilding</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Universe Designer & Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Technologies</span>
+                    <span class="meta-value">Python, SQLite, HYG Catalog, NASA Exoplanet Archive</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">The Concept: Real Stars, Original Physics</h2>
+            <div class="section-content">
+                <div class="quote-block">
+                    "We call them Fifteeners because they're running at the Prometheus Limit. They'll tell you 
+                    it's 14.95, that they've got a 50-millifathom safety margin. But when ISM gets dense, when 
+                    the stellar wind shifts, when the PL surges... that margin disappears."
+                    <br><span style="font-size: 0.9rem; font-style: normal; color: var(--text-muted);">&mdash; Chief Engineer Rodriguez, Depth Certification Board</span>
+                </div>
+                
+                <p>
+                    Prometheus Limit is an original science fiction universe built on a foundation of real 
+                    astronomical data. The project imports the HYG stellar database (containing over 100,000 
+                    real stars with accurate positions and classifications) and the NASA Exoplanet Archive, then 
+                    layers original FTL physics, exploration mechanics, and economic systems on top of that 
+                    real-world foundation.
+                </p>
+
+                <p>
+                    The core physics concept is the <strong>Prometheus Limit</strong> itself &mdash; depth 15.0 
+                    fathoms, where standard hulls fail due to tidal stress in compressed spacetime. Ships travel 
+                    by "diving" into compressed space layers, trading safety margin for speed. This creates a 
+                    three-tier culture: conservative <strong>Fourteeners</strong> (depth 14.0), professional 
+                    <strong>Fourteen-Fivers</strong> (14.5), and elite <strong>Fifteeners</strong> (14.95) who 
+                    operate a hair's breadth from hull failure.
+                </p>
+
+                <p>
+                    The depth a ship operates at determines its <strong>Jordan Limit</strong> range &mdash; how 
+                    far it can reach between star systems via FTL dive. At depth 14.0, the stellar neighborhood 
+                    fragments into small clusters of 15 systems maximum. At 14.95, a giant 297-system network 
+                    emerges. This creates fundamentally different strategic landscapes depending on risk tolerance, 
+                    and drives the entire exploration simulation.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Data Pipeline: From Catalogs to Universe</h2>
+            <div class="section-content">
+                <p>
+                    Building the simulation required a multi-phase data pipeline that transforms raw astronomical 
+                    catalogs into a navigable universe with physics, economics, and mission systems:
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Stellar Import:</strong> Ingests the HYG v41/v42 stellar database with 3D positions, 
+                        spectral classifications, luminosities, and magnitudes for real stars within configurable 
+                        distance limits (25 LY test neighborhood or full catalog).
+                    </li>
+                    <li>
+                        <strong>Property Derivation:</strong> Calculates mass, radius, luminosity, Prometheus 
+                        Limit boundary, and Jordan Limit range for every star based on its physical properties.
+                    </li>
+                    <li>
+                        <strong>Exoplanet Integration:</strong> Cross-references the NASA Exoplanet Archive to 
+                        attach confirmed exoplanets to their host stars, with Gaia-based matching for unresolved hosts.
+                    </li>
+                    <li>
+                        <strong>Procedural Generation:</strong> Uses Kepler occurrence rate statistics to generate 
+                        planets for stars without observed companions, creating a complete universe where every 
+                        system has astrophysically plausible planetary bodies.
+                    </li>
+                    <li>
+                        <strong>Survey &amp; Valuation:</strong> Generates Earth-based survey data (what's known 
+                        before exploration) and calculates charter values based on habitability potential, resource 
+                        richness, strategic position, and distance.
+                    </li>
+                    <li>
+                        <strong>Mission Generation:</strong> Creates four mission types &mdash; Directed Survey, 
+                        Prospecting, Route Mapping, and Blind Exploration &mdash; each with unique objectives 
+                        and payout structures.
+                    </li>
+                </ul>
+
+                <div class="code-block">
+# Compression physics driving the universe
+# C = exp(alpha * depth)
+# alpha = 0.53 fathoms^-1 (empirical constant)
+
+DEPTH_TIERS = {
+    14.0:  {'name': 'Fourteener',    'compression': 1513, 'speed': '44c',  'jl_range': '2.87 LY'},
+    14.5:  {'name': 'Fourteen-Fiver', 'compression': 2069, 'speed': '60c',  'jl_range': '3.93 LY'},
+    14.95: {'name': 'Fifteener',      'compression': 2761, 'speed': '81c',  'jl_range': '5.22 LY'},
+    15.0:  {'name': 'THE LIMIT',      'compression': 2830, 'speed': 'N/A',  'jl_range': 'Hull failure'},
+}
+
+# Safety margins from PL (depth 15.0)
+# 14.0:  exp(0.53 * 1.0)  = 1.87x safety (safe)
+# 14.5:  exp(0.53 * 0.5)  = 1.37x safety (comfortable)
+# 14.95: exp(0.53 * 0.05) = 1.03x safety (hair's breadth)
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-badge">Python 3.9+</span>
+                    <span class="tech-badge">SQLite</span>
+                    <span class="tech-badge">HYG Stellar Database</span>
+                    <span class="tech-badge">NASA Exoplanet Archive</span>
+                    <span class="tech-badge">Gaia DR3</span>
+                    <span class="tech-badge">Procedural Generation</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">The Explorer Engine: Nine Strategies, One Matrix</h2>
+            <div class="section-content">
+                <p>
+                    The heart of the simulation is the <strong>Explorer Engine</strong> &mdash; a turn-based 
+                    system where ships accept missions, navigate star systems, discover wormhole transit keys, 
+                    and make autonomous decisions based on their assigned strategy. Nine strategies are organized 
+                    as a 3&times;3 matrix of <strong>mechanics</strong> (what the ship does) and <strong>risk 
+                    levels</strong> (how deep it dives):
+                </p>
+
+                <table class="strategy-matrix">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Low Risk (14.0 fa)</th>
+                            <th>Medium Risk (14.5 fa)</th>
+                            <th>High Risk (14.95 fa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Exploration</th>
+                            <td><strong>Cartographer</strong> &mdash; Exhaust all JL dives before wormhole. Dense local mapping.</td>
+                            <td><strong>Scout</strong> &mdash; Prefer wormhole when safe; JL fallback. Balanced progress.</td>
+                            <td><strong>Maverick</strong> &mdash; Score-based frontier push. No backtrack. Resupply at sea.</td>
+                        </tr>
+                        <tr>
+                            <th>Maintenance</th>
+                            <td><strong>Consolidator</strong> &mdash; Refresh keys, verify routes in known space.</td>
+                            <td><strong>Surveyor</strong> &mdash; Consolidator + coffin corners. Test alternate depths.</td>
+                            <td><strong>Storm Rider</strong> &mdash; Map ISM flows and PL surge zones. Extended patrol.</td>
+                        </tr>
+                        <tr>
+                            <th>Pathfinding</th>
+                            <td><strong>Master</strong> &mdash; Find wormhole shortcuts to replace dangerous routes.</td>
+                            <td><strong>Pathfinder</strong> &mdash; Test non-standard depths to open marginal routes.</td>
+                            <td><strong>Pilot</strong> &mdash; Know choke points, vulnerability windows, and refit points.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Each strategy implements a distinct behavioral tree for target selection. 
+                    <strong>Exploration</strong> strategies discover new systems and create the network. 
+                    <strong>Maintenance</strong> strategies verify routes and refresh transit key data in known 
+                    space. <strong>Pathfinding</strong> strategies optimize the network, finding shortcuts and 
+                    collapsing multi-hop routes.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>Key Navigation Mechanics:</strong> Ships travel via two methods &mdash; 
+                    <strong>JL dives</strong> (sailing through overlapping Jordan Limit zones between nearby 
+                    stars, speed and range determined by dive depth) and <strong>wormhole jumps</strong> (near-instant 
+                    transit via discovered transit keys from L6 gravitational balance points). Transit keys are 
+                    one-way, discovered only when a ship arrives at a system for the first time, creating an 
+                    asymmetric and growing network.</p>
+                </div>
+
+                <p>
+                    Risk isn't about environmental danger &mdash; it's about how far a ship pushes its own 
+                    operational envelope. <strong>Low risk</strong> ships stay at standard depth with full safety 
+                    margins and must return home on what they brought. <strong>Medium risk</strong> ships push 
+                    deeper, testing tighter routes. <strong>High risk</strong> ships break the supply chain 
+                    entirely, resupplying at habitable planets to extend their range indefinitely.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">AI Collaboration Methodology</h2>
+            <div class="section-content">
+                <p>
+                    This project demonstrates deep AI collaboration across every phase &mdash; from universe 
+                    design to physics modeling to simulation engineering:
+                </p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Physics Design:</strong> Iterative development of the compression formula 
+                        (C = exp(0.53 &times; d)), depth doctrine, and Prometheus Limit concept through 
+                        extended human-AI dialogue. The empirical constant, safety margins, and network 
+                        topology implications were refined through dozens of collaborative iterations.
+                    </li>
+                    <li>
+                        <strong>Strategy Specification:</strong> The 3&times;3 strategy matrix was developed 
+                        through a structured Q&amp;A process documented in a 1,000+ line dialogue page, with 
+                        AI helping formalize behavioral trees, identify edge cases (ping-pong loops, dead ends, 
+                        stranding), and define precise terminology.
+                    </li>
+                    <li>
+                        <strong>Simulation Engineering:</strong> AI-assisted implementation of the explorer 
+                        engine, transit key discovery mechanics, procedural generation pipelines, and batch 
+                        simulation runners with CSV/Markdown reporting.
+                    </li>
+                    <li>
+                        <strong>Astrophysical Research:</strong> Used AI to synthesize stellar classification 
+                        data, Kepler occurrence rates, and exoplanet statistics into generation algorithms 
+                        that produce plausible planetary systems at scale.
+                    </li>
+                    <li>
+                        <strong>Worldbuilding Consistency:</strong> AI served as a continuity checker across 
+                        the growing canon &mdash; tracking terminology decisions (Scout vs Pathfinder naming), 
+                        resolving contradictions (dark pocket vs dark cluster definitions), and maintaining 
+                        a living specification document.
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Key Insight:</strong> The most valuable AI contribution wasn't code generation &mdash; 
+                    it was serving as a structured thinking partner for universe design. The dialogue page records 
+                    19 canonical questions with answers, 30+ defined terms, and resolved naming conflicts, all 
+                    produced through iterative human-AI exchange. AI excels at holding complex systems in context 
+                    and identifying where design decisions create downstream contradictions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Impact & Metrics</h2>
+            <div class="section-content">
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-number">9</div>
+                        <div class="impact-label">Distinct Explorer Strategies in a 3&times;3 Matrix</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">100K+</div>
+                        <div class="impact-label">Real Stars from HYG Catalog Available for Import</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">297</div>
+                        <div class="impact-label">Systems in The Network at Fifteener Depth (14.95 fa)</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-number">5</div>
+                        <div class="impact-label">Phase Data Pipeline (Import, Derive, Survey, Mission, Simulate)</div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.35rem; margin-top: 2rem; margin-bottom: 1rem;">What the Simulation Produces</h3>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Ship Logs:</strong> Real-time progress tracking as ships navigate between 
+                        systems, recording every dive, jump, discovery, and decision.
+                    </li>
+                    <li>
+                        <strong>Transit Key Networks:</strong> Asymmetric wormhole connection graphs that grow 
+                        as exploration progresses, creating an evolving map of navigable space.
+                    </li>
+                    <li>
+                        <strong>Batch Simulation Reports:</strong> CSV summaries and Markdown reports comparing 
+                        strategy performance across multiple runs (systems visited, keys discovered, travel 
+                        days, mission payouts).
+                    </li>
+                    <li>
+                        <strong>Decision Logs:</strong> Turn-by-turn records of why each strategy chose its 
+                        target, enabling analysis of behavioral patterns and edge cases.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What This Demonstrates</h2>
+            <div class="section-content">
+                <p>This project showcases several key competencies:</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <strong>Complex Systems Design:</strong> Creating interconnected physics, navigation, 
+                        economic, and behavioral systems that produce emergent exploration patterns from 
+                        simple rules.
+                    </li>
+                    <li>
+                        <strong>Real Data Integration:</strong> Building simulation infrastructure on actual 
+                        astronomical catalogs rather than synthetic data, requiring careful data pipeline 
+                        design and cross-referencing between multiple sources.
+                    </li>
+                    <li>
+                        <strong>AI-Driven Design Process:</strong> Using AI as a structured thinking partner 
+                        for iterative universe design, with documented dialogue capturing every design 
+                        decision, term definition, and resolved contradiction.
+                    </li>
+                    <li>
+                        <strong>Behavioral AI:</strong> Implementing nine distinct decision-making strategies 
+                        as behavioral trees, each producing different exploration patterns and trade-offs.
+                    </li>
+                    <li>
+                        <strong>Procedural Generation:</strong> Generating astrophysically plausible planetary 
+                        systems at scale using real occurrence rate statistics from Kepler data.
+                    </li>
+                    <li>
+                        <strong>Specification Discipline:</strong> Maintaining a living design specification 
+                        with 19 canonical Q&amp;A pairs, 30+ defined terms, and a formal glossary &mdash; 
+                        treating worldbuilding with the rigor of software requirements.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Current Status & Roadmap</h2>
+            <div class="section-content">
+                <p>
+                    The core data pipeline and exploration simulation are functional, with several strategies 
+                    confirmed working. Active development continues on:
+                </p>
+
+                <ul class="feature-list">
+                    <li>Endurance and resupply mechanics for high-risk strategies</li>
+                    <li>Maintenance row strategy implementation (Consolidator, Surveyor, Storm Rider)</li>
+                    <li>Network optimization logic for the Pathfinding row</li>
+                    <li>Web API and frontend dashboard for ship tracking visualization</li>
+                    <li>ISM variance and PL surge simulation for dynamic navigation hazards</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3 style="margin-bottom: 1rem;">Explore the Universe</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                The Prometheus Limit project combines real astronomical data with original science fiction 
+                to create a simulation where exploration strategy matters as much as destination.
+            </p>
+            <a href="https://github.com/Lochnivar/prometheuslimit" class="cta-button" target="_blank">View Repository</a>
+            <a href="index.html#projects" class="cta-button" style="background: #6b7280;">View Other Projects</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Portfolio. Demonstrating AI capabilities across creative, analytical, and professional contexts.</p>
+        </div>
+    </footer>
+</body>
+</html>

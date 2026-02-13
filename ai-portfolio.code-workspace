@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../../../Desktop/KAMSv2/kova-kamsv2-2.0.4.1"
+		},
+		{
+			"path": "../prometheuslimit"
 		}
 	],
 	"settings": {}
